@@ -12,7 +12,6 @@ class WeatherService {
         final response = await http.get(url);
 
         if (response.statusCode == 200) {
-          print(response.body);
           return WeatherModel.fromJson(jsonDecode(response.body,) as Map<String,dynamic>);
 
 

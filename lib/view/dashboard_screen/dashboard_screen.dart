@@ -69,13 +69,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
               future: weathermodel,
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const CircularProgressIndicator(); // or any loading widget
-                } else if (snapshot.hasError) {
-                  return Text(
-                    'Error: ${snapshot.error}',
-                    style: TextStyle(color: Colors.red),
-                  );
-                } else if (snapshot.hasData) {
+                  return const CircularProgressIndicator();
+                }
+
+                // else if (snapshot.hasError) {
+                //   return Text(
+                //     'Error: ${snapshot.error}',
+                //     style: TextStyle(color: Colors.red),
+                //   );
+                // }
+
+                else if (snapshot.hasData) {
                   return Text(
                     snapshot.data!.name.toString(),
                     style: GoogleFonts.poppins(
@@ -86,7 +90,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   );
                 } else {
                   return const Text(
-                    'No data',
+                    'Unknown',
                     style: TextStyle(color: Colors.white),
                   );
                 }
@@ -127,7 +131,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         height: size.height * 0.3,
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            boxShadow: [new BoxShadow(
+                            boxShadow: [BoxShadow(
                               color: Colors.white10,
                               spreadRadius: 10,
                               blurRadius: 60.0,
@@ -148,9 +152,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         builder: (context, snapshot) {
                           if (snapshot.connectionState == ConnectionState.waiting) {
                             return CircularProgressIndicator();
-                          } else if (snapshot.hasError) {
-                            return Text('Error: ${snapshot.error}', style: TextStyle(color: Colors.white));
-                          } else if (snapshot.hasData) {
+                          }
+
+                          // else if (snapshot.hasError) {
+                          //   return Text('Error: ${snapshot.error}', style: TextStyle(color: Colors.white));
+                          // }
+
+
+                          else if (snapshot.hasData) {
                             final data = snapshot.data!;
 
 
@@ -181,15 +190,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             builder: (context, snapshot) {
                               if (snapshot.connectionState == ConnectionState.waiting) {
                                 return CircularProgressIndicator();
-                              } else if (snapshot.hasError) {
-                                return Text(
-                                  'Error: ${snapshot.error}',
-                                  style: TextStyle(color: Colors.white),
-                                );
-                              } else if (snapshot.hasData) {
+                              }
+
+                              // else if (snapshot.hasError) {
+                              //   return Text(
+                              //     'Error: ${snapshot.error}',
+                              //     style: TextStyle(color: Colors.white),
+                              //   );
+                              // }
+
+                              else if (snapshot.hasData) {
                                 final data = snapshot.data!;
                                 return Text(
-                                  '${data.tempC.toDouble()}°C',
+                                  '${data.tempC.toDouble().toInt()}°C',
                                   style: GoogleFonts.poppins(
                                       fontSize: 60,
                                       fontWeight: FontWeight.w600,
@@ -232,12 +245,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                      builder: (context, snapshot) {
                                        if (snapshot.connectionState == ConnectionState.waiting) {
                                          return CircularProgressIndicator();
-                                       } else if (snapshot.hasError) {
-                                         return Text(
-                                           'Error: ${snapshot.error}',
-                                           style: TextStyle(color: Colors.white),
-                                         );
-                                       } else if (snapshot.hasData) {
+                                       }
+
+                                       // else if (snapshot.hasError) {
+                                       //   return Text(
+                                       //     'Error: ${snapshot.error}',
+                                       //     style: TextStyle(color: Colors.white),
+                                       //   );
+                                       //
+                                       // }
+
+                                       else if (snapshot.hasData) {
                                          final data = snapshot.data!;
                                          return Text(
                                            '${data.cloud.toString()}%',
@@ -281,12 +299,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                        builder: (context, snapshot) {
                                          if (snapshot.connectionState == ConnectionState.waiting) {
                                            return CircularProgressIndicator();
-                                         } else if (snapshot.hasError) {
-                                           return Text(
-                                             'Error: ${snapshot.error}',
-                                             style: TextStyle(color: Colors.white),
-                                           );
-                                         } else if (snapshot.hasData) {
+                                         }
+                                         // else if (snapshot.hasError) {
+                                         //   return Text(
+                                         //     'Error: ${snapshot.error}',
+                                         //     style: TextStyle(color: Colors.white),
+                                         //   );
+                                         // }
+
+
+                                         else if (snapshot.hasData) {
                                            final data = snapshot.data!;
                                            return Text(
                                              '${data.wind.toString()} km/h',
@@ -329,12 +351,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                      builder: (context, snapshot) {
                                        if (snapshot.connectionState == ConnectionState.waiting) {
                                          return CircularProgressIndicator();
-                                       } else if (snapshot.hasError) {
-                                         return Text(
-                                           'Error: ${snapshot.error}',
-                                           style: TextStyle(color: Colors.white),
-                                         );
-                                       } else if (snapshot.hasData) {
+                                       }
+
+                                       // else if (snapshot.hasError) {
+                                       //   return Text(
+                                       //     'Error: ${snapshot.error}',
+                                       //     style: TextStyle(color: Colors.white),
+                                       //   );
+                                       // }
+
+                                       else if (snapshot.hasData) {
                                          final data = snapshot.data!;
                                          return Text(
                                            '${data.humidity.toString()}%',

@@ -23,7 +23,7 @@ class LandingScreen extends StatelessWidget {
                   height: size.height * 0.3,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                      boxShadow: [new BoxShadow(
+                      boxShadow: [BoxShadow(
                         color: Colors.white10,
                         spreadRadius: 10,
                         blurRadius: 60.0,
